@@ -5,8 +5,8 @@
    Tutorial 12
    Tutorial Case
 
-   Author: 
-   Date:   
+   Author: Patrick M. Capuano
+   Date:   3.28.19
 
    Filename: bc_outline.js
 
@@ -27,3 +27,16 @@
 
 */
 
+// Generate an outline based on h1 through h6 headings in the source document.
+window.addEventListener("load", makeOutLine);
+
+
+function makeOutLine() {
+
+      // Location of the outline.
+      var outline = document.getElementById("outline");
+
+      // Source document for the outline.
+      var source = document.getElementById("doc");
+
+}
