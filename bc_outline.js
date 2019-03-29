@@ -39,4 +39,58 @@ function makeOutLine() {
       // Source document for the outline.
       var source = document.getElementById("doc");
 
+
+      var mainHeading = document.createElement("h1");
+      var outlineList = document.createElement("ol");
+      var headingText = document.createTextNode("Outline");
+
+      mainHeading.appendChild(headingText);
+      outline.appendChild(mainHeading);
+      outline.appendChild(outlineList);
+
+      createList(source, outlineList);
+
+}
+
+function createList(source, outlineList) {
+
+      // Heading for the outline.
+      var headings = ["H1", "H2", "H3", "H4", "H5", "H6"]
+
+      // Previous level of the headings.
+      var prevLevel = 0;
+
+      // Loops through all of the childe nodes of source article until no child nodes are left.
+      for (var n = source.firstChild; n !== null; n = n.nextSibling) {
+            var headLevel = headings.indexOf(n.nodeName);
+            if (headLevel !== -1) {
+
+                  var listElem = document.createElement("li");
+                  listElem.innerHTML = n.firstChild.nodeValue;
+                  outlineList.appendChild(listElem);
+
+                  if (headLevel === prevLevel) {
+                        // Append the list item to the current list.
+                        outlineList.appendChild(listElem);
+
+                  } else if (headLevel > prevLevel) {
+                        // Start a new nested list.
+                        var nestedList = document.createElement("ol");
+                        nestedList.appendChild(listElem);
+
+                        // Append nested list to the last item in the current list.
+                        outlineList.lastChild.appendChild(nestedList);
+
+                        // Change the current list to the nested list.
+                        outlineList = nestedList;
+
+                  } else {
+                        // Append the list item to a higher list. 
+
+                  }
+
+                  // Update the value of prevLevel.
+                  prevLevel = headLevel;
+            }
+      }
 }
