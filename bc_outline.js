@@ -98,9 +98,9 @@ function createList(source, outlineList) {
 
                         // Go up t the higher level.
                         for (var i = 1; i < levelUp; i++) {
-
+                              outlineList = outlineList.parentNode.parentNode;
                         };
-
+                        outlineList.appendChild(listElem);
                   }
                   // Update the value of prevLevel.
                   prevLevel = headLevel;
