@@ -53,12 +53,12 @@ function setupStyles() {
     document.head.appendChild(buttonStyles);
 
     // Add style rules to the embedded style sheet.
-    docoument.styleSheet[document.styleSheets.length - 1].insertRule(
+    document.styleSheet[document.styleSheets.length-1].insertRule(
         "div#styleButtons { \
             position: fixed; \
         }", 0);
 
-    docoument.styleSheet[document.styleSheets.length - 1].insertRule(
+    document.styleSheet[document.styleSheets.length-1].insertRule(
         "div#styleButtons { \
             background-color: rgba(68, 94, 186, 0.6); \
             border: 3px solid rgb(0, 24, 123, 0.6); \
@@ -72,7 +72,7 @@ function setupStyles() {
             width: 100px; \
         }", 1);
 
-    docoument.styleSheet[document.styleSheets.length - 1].insertRule(
+    document.styleSheet[document.styleSheets.length-1].insertRule(
         "@media print { \
                 div#styleButtons { \
                     display: none; \
